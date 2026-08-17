@@ -1,0 +1,17 @@
+{
+  "name": "M365 PowerShell Studio",
+  "short_name": "M365 Studio",
+  "description": "Build safer, repeatable PowerShell automation across Microsoft 365.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111319",
+  "theme_color": "#111319",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
