@@ -45,10 +45,41 @@ The generated scripts are intentionally designed to be reviewed and exported
 before they are run against a tenant. They do not execute Microsoft 365
 changes from the browser.
 
-## Deployment
+## Deployment strategy
 
-The app is deployed privately through ChatGPT Sites. The .openai/hosting.json
-file contains the Sites project binding used for that deployment.
+This repository is the source of truth. ChatGPT Sites is only one optional
+hosting target; the application does not require ChatGPT to run.
+
+### Web
+
+Run the Vinext server with npm run web:start after npm run build. The included
+Dockerfile can be deployed to any container host that supports Node.js 22.
+The same web app can also be adapted to a Node, Cloudflare, or other
+JavaScript hosting provider.
+
+The included web manifest and service worker make the app installable as a
+standalone PWA in compatible browsers.
+
+### Desktop
+
+The Electron shell provides Windows, macOS, and Linux builds while reusing the
+same web interface. During development:
+
+    npm run desktop:dev
+
+To launch the shell against a self-hosted web deployment:
+
+    M365_STUDIO_URL=https://your-host.example npm run desktop
+
+To build distributable installers:
+
+    npm run desktop:dist
+
+The shell accepts a URL through M365_STUDIO_URL or a --url command-line
+argument. This keeps the desktop app independent of any single hosting vendor.
+
+The generated PowerShell remains local to the browser or desktop shell. It is
+reviewed and exported by the user before it is run against a tenant.
 
 ## Prerequisites
 
