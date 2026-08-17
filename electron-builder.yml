@@ -1,0 +1,19 @@
+appId: com.sirsluatty.m365powershellstudio
+productName: M365 PowerShell Studio
+directories:
+  output: release
+files:
+  - electron/**
+  - package.json
+  - README.md
+asar: true
+publish: null
+win:
+  target:
+    - nsis
+mac:
+  target:
+    - dmg
+linux:
+  target:
+    - AppImage
